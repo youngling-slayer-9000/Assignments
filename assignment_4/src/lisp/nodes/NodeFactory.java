@@ -1,6 +1,8 @@
+package lisp.nodes;
+
 public class NodeFactory {
 
-    public static Node<?> createNode(String type,String value){
+    public static Node<?> createNode(String type, String value){
 
         if(type == null || value == null){
             throw new IllegalArgumentException("Type or value cant be null");

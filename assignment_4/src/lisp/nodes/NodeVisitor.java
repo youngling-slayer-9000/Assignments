@@ -1,3 +1,5 @@
+package lisp.nodes;
+
 public interface NodeVisitor {
 
     void visit(CharacterNode ptr);

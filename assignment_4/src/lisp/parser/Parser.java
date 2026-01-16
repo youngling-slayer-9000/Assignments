@@ -1,9 +1,11 @@
+package lisp.parser;
+
 import java.util.ArrayList;
 
 public class Parser {
 
     public Parser() {
-        System.out.println("Parser constructor");
+        System.out.println("lisp.parser.Parser constructor");
     }
 
     public ArrayList<String> parse(String expr) {

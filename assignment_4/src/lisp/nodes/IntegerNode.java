@@ -1,3 +1,5 @@
+package lisp.nodes;
+
 public class IntegerNode implements Node<Integer> {
     private int data;
 
