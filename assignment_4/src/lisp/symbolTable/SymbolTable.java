@@ -26,7 +26,11 @@ public class SymbolTable {
         return table.get(variableName);
     }
 
-    public boolean contains(String variableName) {
-        return table.containsKey(variableName);
+
+    public Object getOrThrow(String variableName) {
+        if (!table.containsKey(variableName)) {
+            throw new RuntimeException("Undefined variable '" + variableName + "'");
+        }
+        return table.get(variableName);
     }
 }
