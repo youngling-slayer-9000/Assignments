@@ -1,73 +1,51 @@
 package lisp.ast;
 
-import lisp.nodes.IntegerNode;
 import lisp.nodes.*;
+import lisp.symbolTable.SymbolTable;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class Traversal {
 
-    public static int eval(Node<?> node) {
+    public static Object eval(Node<?> node, SymbolTable env) {
 
-        // leaf node
-        if (node instanceof IntegerNode) {
-            return ((IntegerNode) node).getData();
+        // ---------- leaf nodes ----------
+        if (node instanceof IntegerNode) return ((IntegerNode) node).getData();
+        if (node instanceof BooleanNode) return ((BooleanNode) node).getData();
+
+        if (node instanceof IdentifierNode) {
+            return env.get(((IdentifierNode) node).getData());
         }
 
-        // operator node
-        if (!(node instanceof SymbolNode)) {
-            throw new RuntimeException("Unknown node type: " + node.getClass());
-        }
-
+        // check if its an operator
         SymbolNode opNode = (SymbolNode) node;
         String op = opNode.getData();
         List<Node<?>> kids = opNode.getChildren();
 
-        if (kids == null || kids.isEmpty()) {
-            throw new RuntimeException("Operator node has no children: " + op);
+          // check if its a variable, resgiter it and  return the  value
+        if (op.equals("define")) {
+            String varName = ((IdentifierNode) kids.get(0)).getData();
+            Object value = eval(kids.get(1), env);
+            env.register(varName, value);
+            return value;
         }
 
         // evaluate all children first (postorder)
-        List<Integer> vals = new ArrayList<>();
+        List<Object> vals = new ArrayList<>();
         for (Node<?> child : kids) {
-            vals.add(eval(child));
+            vals.add(eval(child, env));
         }
 
-        // reduce values
-        return switch (op) {
+       Operatable func = Operations.get(op);
 
-            case "+" -> {
-                int sum = 0;
-                for (int v : vals) sum += v;
-                yield sum;
-            }
+        if(func ==  null) {
 
-            case "*" -> {
-                int prod = 1;
-                for (int v : vals) prod *= v;
-                yield prod;
-            }
+            return null;
 
-            case "-" -> {
-                int res = vals.get(0);
-                for (int i = 1; i < vals.size(); i++) res -= vals.get(i);
-                yield res;
-            }
+        }
 
-            case "/" -> {
-                int res = vals.get(0);
-                for (int i = 1; i < vals.size(); i++) {
-                    int divisor = vals.get(i);
-                    if (divisor == 0) {
-                        throw new ArithmeticException("Division by zero");
-                    }
-                    res /= divisor;
-                }
-                yield res;
-            }
-
-            default -> throw new RuntimeException("Unknown operator: " + op);
-        };
+        return func.process(vals);
     }
+
 }

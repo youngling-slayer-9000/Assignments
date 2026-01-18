@@ -1,18 +1,31 @@
 package lisp;
-
 import lisp.ast.AST;
 import lisp.ast.Traversal;
+import lisp.nodes.Node;
+import lisp.symbolTable.SymbolTable;
 
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
+import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args) {
 
-      //  lisp.parser.Parser.Helper ptr = new lisp.parser.Parser.Helper("sharon");
-       AST ast = new AST();
+        AST ast = new AST();
+        SymbolTable env = SymbolTable.getInstance();
+        Scanner sc = new Scanner(System.in);
 
-        System.out.println(Traversal.eval(ast.construction("( + (+ 2 3 6 7 ) ( + 3 4 ) )")));
+        while (true) {
+            System.out.print("lisp> ");
+            String input = sc.nextLine().trim();
 
+            if (input.equalsIgnoreCase("exit")) break;
+            if (input.isEmpty()) continue;
 
+            Node<?> root = ast.construction(input);
+            Object result = Traversal.eval(root, env);
+
+            System.out.println(result);
+        }
+
+        sc.close();
     }
 }
