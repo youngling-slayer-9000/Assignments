@@ -50,24 +50,29 @@ public class Evaluation implements NodeVisitor {
 
         if (op.equalsIgnoreCase("define")) {
             String varName = ((IdentifierNode) kids.get(0)).getData();
-            Object value = st.pop(); // second child value already evaluated
+            Object value = st.pop();
             env.register(varName, value);
             st.push(value);
             return;
         }
 
-        // get the operator of current symbol node
+
+        if (op.equalsIgnoreCase("if")) {
+            boolean cond = (Boolean) st.pop();  // condition already evaluated
+            Node<?> branch = cond? kids.get(1):kids.get(2);
+            PostOrderTraversal.traverse(branch, this);
+            return;
+        }
+
         Operatable operation = Operations.get(op);
 
-        // store all the cildren of current node in a List and apply corresponding operation(decided at runtime) on it
         int n = kids.size();
         List<Object> args = new ArrayList<>();
-        for(int i = 0 ; i < n ; i++ )
-            args.add(0, st.pop()); // reverse order
+        for (int i = 0; i < n; i++)
+            args.add(0, st.pop());
 
-        Object ans = operation.apply(args);
-
-        st.push(ans);
-
+        Object answer = operation.apply(args);
+        st.push(answer);
     }
+
 }

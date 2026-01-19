@@ -30,7 +30,5 @@ public class Operations {
         return ops.get(symbol);
     }
 
-    public static void register(String symbol, Operatable op) {
-        ops.put(symbol, op);
-    }
+
 }

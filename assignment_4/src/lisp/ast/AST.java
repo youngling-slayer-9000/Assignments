@@ -27,9 +27,12 @@ public class AST {
         }
 
         String first = exprList.get(0);
-
+        for(String s : exprList){
+            System.out.print(s + " | ");
+        }
+        System.out.println();
         // Checking whether it is an operator or not
-        if (isDefine(first) || isArithmetic(first) || isLogical(first) || isComparator(first)) {
+        if ( isIf(first) ||  isDefine(first) || isArithmetic(first) || isLogical(first) || isComparator(first)) {
 
             SymbolNode root = (SymbolNode) NodeFactory.createNode("symbol", first);
 
@@ -69,6 +72,9 @@ public class AST {
         return str.equalsIgnoreCase("true") || str.equalsIgnoreCase("false");
     }
 
+    public boolean isIf(String str){
+        return str.equalsIgnoreCase("if");
+    }
 
 
     private boolean isInteger(String s) {
