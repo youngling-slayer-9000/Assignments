@@ -21,7 +21,7 @@ public class Evaluation implements NodeVisitor {
         return st.peek();
     }
 
-    // leaf nodes push values
+
     @Override public void visit(IntegerNode ptr) {
         st.push(ptr.getData());
     }
