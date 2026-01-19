@@ -11,8 +11,8 @@ public class Main {
 
     public static void main(String[] args) {
 
-        AST ast = new AST();
         SymbolTable env = SymbolTable.getInstance();
+        AST ast = new AST();
 
         Scanner sc = new Scanner(System.in);
 
