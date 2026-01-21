@@ -33,4 +33,10 @@ public class SymbolTable {
         }
         return table.get(variableName);
     }
+
+
+    public void clear() {
+        table.clear();
+    }
+
 }
