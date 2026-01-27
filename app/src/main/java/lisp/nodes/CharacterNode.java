@@ -1,12 +1,14 @@
-public class IntegerNode implements Node<Integer> {
-    private int data;
+package lisp.nodes;
 
-    public IntegerNode(int data){
+public class CharacterNode implements Node<Character> {
+    private char data;
+
+    public CharacterNode(char data){
         this.data = data;
     }
 
     @Override
-    public Integer getData(){
+    public Character getData(){
         return this.data;
     }
 
@@ -14,4 +16,5 @@ public class IntegerNode implements Node<Integer> {
     public void accept(NodeVisitor visitor) {
         visitor.visit(this);
     }
+
 }

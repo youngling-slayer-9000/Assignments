@@ -1,12 +1,14 @@
-public class CharacterNode implements Node<Character>{
-    private char data;
+package lisp.nodes;
 
-    public CharacterNode(char data){
+public class FloatNode implements Node<Double> {
+    private double data;
+
+    public FloatNode(double data){
         this.data = data;
     }
 
     @Override
-    public Character getData(){
+    public Double getData(){
         return this.data;
     }
 
@@ -14,5 +16,4 @@ public class CharacterNode implements Node<Character>{
     public void accept(NodeVisitor visitor) {
         visitor.visit(this);
     }
-
 }
