@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="lisp.MainTest" tests="23" skipped="0" failures="0" errors="0" timestamp="2026-01-21T16:50:11.174Z" hostname="DARTH_VADER" time="0.149">
+  <properties/>
+  <testcase name="testUndefinedVariable()" classname="lisp.MainTest" time="0.02"/>
+  <testcase name="[1] (+ 2 3), 5" classname="lisp.MainTest" time="0.026"/>
+  <testcase name="[2] (+ 2 3 4 5), 14" classname="lisp.MainTest" time="0.001"/>
+  <testcase name="[3] (* 2 3), 6" classname="lisp.MainTest" time="0.001"/>
+  <testcase name="[4] (- 10 2 3), 5" classname="lisp.MainTest" time="0.002"/>
+  <testcase name="[5] (/ 20 2), 10" classname="lisp.MainTest" time="0.002"/>
+  <testcase name="[1] (&lt; 2 3), true" classname="lisp.MainTest" time="0.002"/>
+  <testcase name="[2] (&gt; 2 3), false" classname="lisp.MainTest" time="0.003"/>
+  <testcase name="[3] (&gt;= 5 5), true" classname="lisp.MainTest" time="0.002"/>
+  <testcase name="[4] (&lt;= 4 9), true" classname="lisp.MainTest" time="0.001"/>
+  <testcase name="[5] (== 7 7), true" classname="lisp.MainTest" time="0.001"/>
+  <testcase name="[6] (!= 7 8), true" classname="lisp.MainTest" time="0.002"/>
+  <testcase name="[1] (AND true true), true" classname="lisp.MainTest" time="0.002"/>
+  <testcase name="[2] (AND true false), false" classname="lisp.MainTest" time="0.001"/>
+  <testcase name="[3] (OR false false), false" classname="lisp.MainTest" time="0.001"/>
+  <testcase name="[4] (OR false true), true" classname="lisp.MainTest" time="0.002"/>
+  <testcase name="[5] (NOT true), false" classname="lisp.MainTest" time="0.001"/>
+  <testcase name="[6] (NOT false), true" classname="lisp.MainTest" time="0.002"/>
+  <testcase name="[1] (+ 2 2.3), 4.3" classname="lisp.MainTest" time="0.003"/>
+  <testcase name="[2] (* 2 2.5), 5.0" classname="lisp.MainTest" time="0.001"/>
+  <testcase name="[3] (/ 5.0 2), 2.5" classname="lisp.MainTest" time="0.001"/>
+  <testcase name="[4] (- 10.5 2), 8.5" classname="lisp.MainTest" time="0.001"/>
+  <testcase name="testDefineAndUseVariable()" classname="lisp.MainTest" time="0.001"/>
+  <system-out><![CDATA[lisp.parser.Parser constructor
++ | c | 3 | 
+c | 
+3 | 
++ | 2 | 3 | 
+2 | 
+3 | 
++ | 2 | 3 | 4 | 5 | 
+2 | 
+3 | 
+4 | 
+5 | 
+* | 2 | 3 | 
+2 | 
+3 | 
+- | 10 | 2 | 3 | 
+10 | 
+2 | 
+3 | 
+/ | 20 | 2 | 
+20 | 
+2 | 
+< | 2 | 3 | 
+2 | 
+3 | 
+> | 2 | 3 | 
+2 | 
+3 | 
+>= | 5 | 5 | 
+5 | 
+5 | 
+<= | 4 | 9 | 
+4 | 
+9 | 
+== | 7 | 7 | 
+7 | 
+7 | 
+!= | 7 | 8 | 
+7 | 
+8 | 
+AND | true | true | 
+true | 
+true | 
+AND | true | false | 
+true | 
+false | 
+OR | false | false | 
+false | 
+false | 
+OR | false | true | 
+false | 
+true | 
+NOT | true | 
+true | 
+NOT | false | 
+false | 
++ | 2 | 2.3 | 
+2 | 
+2.3 | 
+* | 2 | 2.5 | 
+2 | 
+2.5 | 
+/ | 5.0 | 2 | 
+5.0 | 
+2 | 
+- | 10.5 | 2 | 
+10.5 | 
+2 | 
+define | x | 10 | 
+x | 
+10 | 
++ | x | 5 | 
+x | 
+5 | 
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

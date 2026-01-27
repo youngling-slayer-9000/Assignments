@@ -1,0 +1,322 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+   <head>
+      <meta charset="UTF-8"/>
+      <title>SpotBugs Report</title>
+      <style type="text/css">
+		.tablerow0 {
+			background: #EEEEEE;
+		}
+
+		.tablerow1 {
+			background: white;
+		}
+
+		.detailrow0 {
+			background: #EEEEEE;
+		}
+
+		.detailrow1 {
+			background: white;
+		}
+
+		.tableheader {
+			background: #b9b9fe;
+			font-size: larger;
+		}
+
+		.tablerow0:hover, .tablerow1:hover {
+			background: #aaffaa;
+		}
+
+		.priority-1 {
+				color: red;
+				font-weight: bold;
+		}
+		.priority-2 {
+				color: orange;
+				font-weight: bold;
+		}
+		.priority-3 {
+				color: green;
+				font-weight: bold;
+		}
+		.priority-4 {
+				color: blue;
+				font-weight: bold;
+		}
+		</style>
+      <script type="text/javascript">
+			function toggleRow(elid) {
+				if (document.getElementById) {
+					element = document.getElementById(elid);
+					if (element) {
+						if (element.style.display == 'none') {
+							element.style.display = 'block';
+							//window.status = 'Toggle on!';
+						} else {
+							element.style.display = 'none';
+							//window.status = 'Toggle off!';
+						}
+					}
+				}
+			}
+		</script>
+   </head>
+   <body>
+      <h1>
+         <a href="https://spotbugs.github.io/">SpotBugs</a> Report</h1>
+      <h2>Project Information</h2>
+      <p>Project: 
+		app (spotbugsMain)</p>
+      <p>SpotBugs version: 4.8.3</p>
+      <p>Code analyzed:</p>
+      <ul>
+         <li>S:\practice\LISP\app\build\classes\java\main\lisp\ast\AST.class</li>
+         <li>S:\practice\LISP\app\build\classes\java\main\lisp\ast\Evaluation.class</li>
+         <li>S:\practice\LISP\app\build\classes\java\main\lisp\ast\PostOrderTraversal.class</li>
+         <li>S:\practice\LISP\app\build\classes\java\main\lisp\Main.class</li>
+         <li>S:\practice\LISP\app\build\classes\java\main\lisp\nodes\BooleanNode.class</li>
+         <li>S:\practice\LISP\app\build\classes\java\main\lisp\nodes\CharacterNode.class</li>
+         <li>S:\practice\LISP\app\build\classes\java\main\lisp\nodes\FloatNode.class</li>
+         <li>S:\practice\LISP\app\build\classes\java\main\lisp\nodes\IdentifierNode.class</li>
+         <li>S:\practice\LISP\app\build\classes\java\main\lisp\nodes\IntegerNode.class</li>
+         <li>S:\practice\LISP\app\build\classes\java\main\lisp\nodes\Node.class</li>
+         <li>S:\practice\LISP\app\build\classes\java\main\lisp\nodes\NodeFactory.class</li>
+         <li>S:\practice\LISP\app\build\classes\java\main\lisp\nodes\NodeTypes.class</li>
+         <li>S:\practice\LISP\app\build\classes\java\main\lisp\nodes\NodeVisitor.class</li>
+         <li>S:\practice\LISP\app\build\classes\java\main\lisp\nodes\SymbolNode.class</li>
+         <li>S:\practice\LISP\app\build\classes\java\main\lisp\operations\Addition.class</li>
+         <li>S:\practice\LISP\app\build\classes\java\main\lisp\operations\AndOp.class</li>
+         <li>S:\practice\LISP\app\build\classes\java\main\lisp\operations\Division.class</li>
+         <li>S:\practice\LISP\app\build\classes\java\main\lisp\operations\EqualTo.class</li>
+         <li>S:\practice\LISP\app\build\classes\java\main\lisp\operations\GreaterEqual.class</li>
+         <li>S:\practice\LISP\app\build\classes\java\main\lisp\operations\GreaterThan.class</li>
+         <li>S:\practice\LISP\app\build\classes\java\main\lisp\operations\LessEqual.class</li>
+         <li>S:\practice\LISP\app\build\classes\java\main\lisp\operations\LessThan.class</li>
+         <li>S:\practice\LISP\app\build\classes\java\main\lisp\operations\Multiplication.class</li>
+         <li>S:\practice\LISP\app\build\classes\java\main\lisp\operations\NotEqualTo.class</li>
+         <li>S:\practice\LISP\app\build\classes\java\main\lisp\operations\NotOp.class</li>
+         <li>S:\practice\LISP\app\build\classes\java\main\lisp\operations\Operatable.class</li>
+         <li>S:\practice\LISP\app\build\classes\java\main\lisp\operations\Operations.class</li>
+         <li>S:\practice\LISP\app\build\classes\java\main\lisp\operations\OrOp.class</li>
+         <li>S:\practice\LISP\app\build\classes\java\main\lisp\operations\Subtraction.class</li>
+         <li>S:\practice\LISP\app\build\classes\java\main\lisp\parser\Parser$Helper.class</li>
+         <li>S:\practice\LISP\app\build\classes\java\main\lisp\parser\Parser.class</li>
+         <li>S:\practice\LISP\app\build\classes\java\main\lisp\symbolTable\SymbolTable$Helper.class</li>
+         <li>S:\practice\LISP\app\build\classes\java\main\lisp\symbolTable\SymbolTable.class</li>
+      </ul>
+      <p>
+         <br/>
+         <br/>
+      </p>
+      <h2>Metrics</h2>
+      <p>483 lines of code analyzed,
+	in 33 classes, 
+	in 6 packages.</p>
+      <table width="500" cellpadding="5" cellspacing="2">
+         <tr class="tableheader">
+            <th align="left">Metric</th>
+            <th align="right">Total</th>
+            <th align="right">Density*</th>
+         </tr>
+         <tr class="tablerow0">
+            <td>High Priority Warnings</td>
+            <td align="right">2</td>
+            <td align="right">4.14</td>
+         </tr>
+         <tr class="tablerow1">
+            <td>Medium Priority Warnings</td>
+            <td align="right">1</td>
+            <td align="right">2.07</td>
+         </tr>
+         <tr class="tablerow1">
+            <td>Low Priority Warnings</td>
+            <td align="right">1</td>
+            <td align="right">2.07</td>
+         </tr>
+         <tr class="$totalClass">
+            <td>
+               <b>Total Warnings</b>
+            </td>
+            <td align="right">
+               <b>4</b>
+            </td>
+            <td align="right">
+               <b>8.28</b>
+            </td>
+         </tr>
+      </table>
+      <p>
+         <i>(* Defects per Thousand lines of non-commenting source statements)</i>
+      </p>
+      <p>
+         <br/>
+         <br/>
+      </p>
+      <h2>Contents</h2>
+      <ul>
+         <li>
+            <a href="#Warnings_I18N">Internationalization Warnings</a>
+         </li>
+         <li>
+            <a href="#Warnings_MALICIOUS_CODE">Malicious code vulnerability Warnings</a>
+         </li>
+         <li>
+            <a href="#Details">Details</a>
+         </li>
+      </ul>
+      <h1>Summary</h1>
+      <table width="500" cellpadding="5" cellspacing="2">
+         <tr class="tableheader">
+            <th align="left">Warning Type</th>
+            <th align="right">Number</th>
+         </tr>
+         <tr class="tablerow0">
+            <td>
+               <a href="#Warnings_I18N">Internationalization Warnings</a>
+            </td>
+            <td align="right">2</td>
+         </tr>
+         <tr class="tablerow1">
+            <td>
+               <a href="#Warnings_MALICIOUS_CODE">Malicious code vulnerability Warnings</a>
+            </td>
+            <td align="right">2</td>
+         </tr>
+         <tr class="tablerow0">
+            <td>
+               <b>Total</b>
+            </td>
+            <td align="right">
+               <b>4</b>
+            </td>
+         </tr>
+      </table>
+      <h1>Warnings</h1>
+      <p>Click on a warning row to see full context information.</p>
+      <h2>
+         <a name="Warnings_I18N">Internationalization Warnings</a>
+      </h2>
+      <table class="warningtable" width="100%" cellspacing="0">
+         <tr class="tableheader">
+            <th align="left">Code</th>
+            <th align="left">Warning</th>
+         </tr>
+         <tr class="tablerow1" onclick="toggleRow('d1e41');">
+            <td>
+               <span class="priority-1">Dm</span>
+            </td>
+            <td>Found reliance on default encoding in lisp.Main.main(String[]): new java.util.Scanner(InputStream)</td>
+         </tr>
+         <tr class="detailrow1">
+            <td/>
+            <td>
+               <p id="d1e41" style="display: none;">
+                  <a href="#DM_DEFAULT_ENCODING">Bug type DM_DEFAULT_ENCODING (click for details)</a>
+                  <br/>In class lisp.Main<br/>In method lisp.Main.main(String[])<br/>Called method new java.util.Scanner(InputStream)<br/>At Main.java:[line 17]</p>
+            </td>
+         </tr>
+         <tr class="tablerow0" onclick="toggleRow('d1e74');">
+            <td>
+               <span class="priority-3">Dm</span>
+            </td>
+            <td>Use of non-localized String.toUpperCase() or String.toLowerCase() in lisp.nodes.NodeFactory.createNode(String, String)</td>
+         </tr>
+         <tr class="detailrow0">
+            <td/>
+            <td>
+               <p id="d1e74" style="display: none;">
+                  <a href="#DM_CONVERT_CASE">Bug type DM_CONVERT_CASE (click for details)</a>
+                  <br/>In class lisp.nodes.NodeFactory<br/>In method lisp.nodes.NodeFactory.createNode(String, String)<br/>At NodeFactory.java:[line 11]</p>
+            </td>
+         </tr>
+      </table>
+      <h2>
+         <a name="Warnings_MALICIOUS_CODE">Malicious code vulnerability Warnings</a>
+      </h2>
+      <table class="warningtable" width="100%" cellspacing="0">
+         <tr class="tableheader">
+            <th align="left">Code</th>
+            <th align="left">Warning</th>
+         </tr>
+         <tr class="tablerow1" onclick="toggleRow('d1e56');">
+            <td>
+               <span class="priority-2">EI2</span>
+            </td>
+            <td>new lisp.ast.Evaluation(SymbolTable) may expose internal representation by storing an externally mutable object into Evaluation.env</td>
+         </tr>
+         <tr class="detailrow1">
+            <td/>
+            <td>
+               <p id="d1e56" style="display: none;">
+                  <a href="#EI_EXPOSE_REP2">Bug type EI_EXPOSE_REP2 (click for details)</a>
+                  <br/>In class lisp.ast.Evaluation<br/>In method new lisp.ast.Evaluation(SymbolTable)<br/>Field lisp.ast.Evaluation.env<br/>Local variable named env<br/>At Evaluation.java:[line 17]</p>
+            </td>
+         </tr>
+         <tr class="tablerow0" onclick="toggleRow('d1e86');">
+            <td>
+               <span class="priority-1">MS</span>
+            </td>
+            <td>lisp.parser.Parser$Helper.ptr isn't final but should be</td>
+         </tr>
+         <tr class="detailrow0">
+            <td/>
+            <td>
+               <p id="d1e86" style="display: none;">
+                  <a href="#MS_SHOULD_BE_FINAL">Bug type MS_SHOULD_BE_FINAL (click for details)</a>
+                  <br/>In class lisp.parser.Parser$Helper<br/>Field lisp.parser.Parser$Helper.ptr<br/>At Parser.java:[line 55]</p>
+            </td>
+         </tr>
+      </table>
+      <h1>
+         <a name="Details">Details</a>
+      </h1>
+      <h2>
+         <a name="DM_CONVERT_CASE">DM_CONVERT_CASE: Consider using Locale parameterized version of invoked method</a>
+      </h2>
+
+  <p> A String is being converted to upper or lowercase, using the platform's default encoding. This may
+      result in improper conversions when used with international characters. Use the </p>
+      <ul>
+    <li>String.toUpperCase( Locale l )</li>
+    <li>String.toLowerCase( Locale l )</li>
+    </ul>
+      <p>versions instead.</p>
+
+    <h2>
+         <a name="DM_DEFAULT_ENCODING">DM_DEFAULT_ENCODING: Reliance on default encoding</a>
+      </h2>
+
+<p> Found a call to a method which will perform a byte to String (or String to byte) conversion,
+and will assume that the default platform encoding is suitable. This will cause the application
+behavior to vary between platforms. Use an alternative API and specify a charset name or Charset
+object explicitly.</p>
+
+      <h2>
+         <a name="EI_EXPOSE_REP2">EI_EXPOSE_REP2: May expose internal representation by incorporating reference to mutable object</a>
+      </h2>
+
+  <p> This code stores a reference to an externally mutable object into the
+  internal representation of the object.&nbsp;
+   If instances
+   are accessed by untrusted code, and unchecked changes to
+   the mutable object would compromise security or other
+   important properties, you will need to do something different.
+  Storing a copy of the object is better approach in many situations.</p>
+
+    <h2>
+         <a name="MS_SHOULD_BE_FINAL">MS_SHOULD_BE_FINAL: Field isn't final but should be</a>
+      </h2>
+
+   <p>
+This <code>public static</code> or <code>protected static</code> field is not final, and
+could be changed by malicious code or
+        by accident from another package.
+        The field could be made final to avoid
+        this vulnerability.</p>
+
+    </body>
+</html>
