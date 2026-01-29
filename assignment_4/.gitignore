@@ -33,3 +33,26 @@ bin/
 
 # Ignore Gradle build output directory
 build
+
+
+# Gradle
+.gradle/
+build/
+out/
+gradle/
+gradlew
+gradlew.bat
+gradle.properties
+settings.gradle
+
+# IntelliJ IDEA
+.idea/
+*.iml
+
+# PMD / SpotBugs reports
+pmd/
+spotbugs/
+
+# OS junk
+.DS_Store
+Thumbs.db
